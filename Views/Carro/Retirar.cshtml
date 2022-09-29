@@ -11,9 +11,6 @@
                 <th scope="col">Placa</th>
                 <th scope="col">Preço Inicial</th>
                 <th scope="col">Preço por hora</th>
-                <th scope="col">Horas Estacionado</th>
-                <th scope="col">Valor Total</th>
-                <th scope="col"></th>
 
             </tr>
         </thead>
@@ -23,10 +20,22 @@
                 <td>5,0</td>
                 <td>2,0</td>
 
-                <td><a role="button" class="btn btn-danger">Retirar Veículo</a></td>
             </tr>
+
         </tbody>
     </table>
+</div>
+
+<div class="d-grig gap-2 d-md-flex justify-content-md-start">
+    <form>
+        <div class="mb-3">
+            <label for="horastotais" class="form-label">Horas Estacionado</label>
+            <input type="text" class="form-control" placeholder="Digite o tempo estacionado">
+        </div>
+        <button type="submit" class="btn btn-primary">Calcular Preço Total</button>
+        <a class="btn btn-secondary" asp-controller="Carro" asp-action="Index" role="button">Voltar</a>
+    </form>
 
 </div>
+
 
