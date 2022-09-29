@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Listar Veículos";
+}
+
+<div class="text-center">
+
+   <div class="d-grig gap-2 d-md-flex justify-content-md-start">
+       <a class="btn btn-primary" role="button" asp-controller="Carro" asp-action="Criar">Adicionar novo veículo</a>
+   </div>
+
+    <h1 class="display-4">Lista de Veículos</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Placa</th>
+                <th scope="col">Preço Inicial</th>
+                <th scope="col">Preço por hora</th>
+                <th scope="col"></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Mat-5567</td>
+                <td>5,0</td>
+                <td>2,0</td>
+                <td><a role="button" class="btn btn-success">Retirar Veículo</a></td>
+            </tr>
+            <tr>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>fat</td>
+                <td><a role="button" class="btn btn-success">Retirar Veículo</a></td>
+            </tr>
+            <tr>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>fat</td>
+                <td><a role="button" class="btn btn-success">Retirar Veículo</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
