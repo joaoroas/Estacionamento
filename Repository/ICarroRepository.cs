@@ -8,7 +8,6 @@ namespace Estacionamento.Repository
         List<CarroModel> BuscarTodos();
         CarroModel Adicionar(CarroModel carro);
         CarroModel AddHoras(CarroModel carro);
-
         bool Apagar(int id);
 
     }
