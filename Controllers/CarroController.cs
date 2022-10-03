@@ -1,21 +1,46 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Estacionamento.Models;
+using Estacionamento.Repository;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Estacionamento.Controllers
 {
     public class CarroController : Controller
     {
+        private readonly ICarroRepository _carroRepository;
+
+        public CarroController(ICarroRepository carroRepository)
+        {
+            _carroRepository = carroRepository;
+        }
+
         public IActionResult Index()
         {
-            return View();
+          List<CarroModel> carros = _carroRepository.BuscarTodos();
+
+            return View(carros);
         }
         public IActionResult Criar()
         {
             return View();
         }
 
-        public IActionResult Retirar()
+        public IActionResult Retirar(int id)
         {
-            return View();
+           CarroModel carro = _carroRepository.ListaPorId(id);
+
+            return View(carro);
+        }
+        [HttpPost]
+        public IActionResult Criar(CarroModel carro)
+        {
+            _carroRepository.Adicionar(carro);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Apagar(int id)
+        {
+            _carroRepository.Apagar(id);
+            return RedirectToAction("Index");
         }
     }
 }

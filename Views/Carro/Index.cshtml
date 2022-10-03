@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<CarroModel>
+@{
     ViewData["Title"] = "Listar Veículos";
 }
 
@@ -20,24 +21,18 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Mat-5567</td>
-                <td>5,0</td>
-                <td>2,0</td>
-                <td><a role="button" class="btn btn-success" asp-controller="Carro" asp-action="Retirar">Retirar Veículo</a></td>
-            </tr>
-            <tr>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>fat</td>
-                <td><a role="button" class="btn btn-success" asp-controller="Carro" asp-action="Retirar">Retirar Veículo</a></td>
-            </tr>
-            <tr>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>fat</td>
-                <td><a role="button" class="btn btn-success" asp-controller="Carro" asp-action="Retirar">Retirar Veículo</a></td>
-            </tr>
+            @if(Model != null && Model.Any())
+            {
+                foreach (CarroModel carro in Model)
+                {
+                    <tr>
+                        <td>@carro.Placa</td>
+                        <td>@carro.PrecoInicial</td>
+                        <td>@carro.PrecoHora</td>
+                        <td><a role="button" class="btn btn-success" asp-route-id="@carro.Id" asp-controller="Carro" asp-action="Retirar">Retirar Veículo</a></td>
+                    </tr>
+                }
+            }
         </tbody>
     </table>
 

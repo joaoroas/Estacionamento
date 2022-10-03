@@ -1,6 +1,19 @@
+using Estacionamento.Data;
+using Estacionamento.Repository;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddDbContext<Context>
+    (
+        options => options.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=Estacionamento;Trusted_Connection=True;")
+    );
+
+builder.Services.AddScoped<ICarroRepository, CarroRepository>();
+
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
