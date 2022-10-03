@@ -3,6 +3,7 @@ using Estacionamento.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Estacionamento.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20221003183812_addtabelahoras")]
+    partial class addtabelahoras
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,8 +31,8 @@ namespace Estacionamento.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("HorasEstacionado")
-                        .HasColumnType("int");
+                    b.Property<decimal>("HorasEstacionado")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Placa")
                         .IsRequired()
@@ -40,9 +42,6 @@ namespace Estacionamento.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("PrecoInicial")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("PrecoTotal")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");

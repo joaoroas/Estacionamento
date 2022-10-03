@@ -1,0 +1,36 @@
+﻿@model CarroModel
+@{
+    ViewData["Title"] = "Apagar veículo";
+}
+
+<div class="text-center">
+
+
+
+    <h1 class="display-4">Veículo</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Placa</th>
+                <th scope="col">Preço Inicial</th>
+                <th scope="col">Preço por Hora</th>
+                <th scope="col">Horas Estacionado</th>
+                <th scope="col">Preço Total</th>
+                <th scope="col"></th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.Placa</td>
+                <td>@Model.PrecoInicial</td>
+                <td>@Model.PrecoHora</td>
+                <td>@Model.HorasEstacionado</td>
+                <td>@Model.PrecoTotal</td>
+                <td><a role="button" class="btn btn-danger" asp-controller="Carro" asp-action="Apagar" asp-route-id="@Model.Id">Apagar Veículo</a></td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

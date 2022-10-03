@@ -1,4 +1,5 @@
-﻿using Estacionamento.Models;
+﻿using Estacionamento.Data;
+using Estacionamento.Models;
 using Estacionamento.Repository;
 using Microsoft.AspNetCore.Mvc;
 
@@ -35,6 +36,17 @@ namespace Estacionamento.Controllers
         {
             _carroRepository.Adicionar(carro);
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult Alterar(CarroModel carro, int id)
+        {
+            _carroRepository.AddHoras(carro);
+
+            CarroModel carroBd = _carroRepository.ListaPorId(id);
+
+            return View(carroBd);
+
         }
 
         public IActionResult Apagar(int id)

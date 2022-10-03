@@ -35,6 +35,19 @@ namespace Estacionamento.Repository
             return _context.Carros.ToList();
         }
 
+        public CarroModel AddHoras(CarroModel carro)
+        {
+            CarroModel carroBd = ListaPorId(carro.Id);
+
+            carroBd.HorasEstacionado = carro.HorasEstacionado;
+            carroBd.PrecoTotal = carroBd.PrecoInicial + carroBd.PrecoHora * carroBd.HorasEstacionado;
+
+             _context.Update(carroBd);
+            _context.SaveChanges();
+
+            return carroBd;
+        }
+
         public CarroModel ListaPorId(int id)
         {
             return _context.Carros.FirstOrDefault(x => x.Id == id);
